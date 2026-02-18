@@ -14,11 +14,15 @@ export const App = () => {
 
   // DON'T change the code below
   const increase = () => {
-    if (count % 5 === 0) {
-      add100();
-    }
+    setCount(prevCount => {
+      const isDivisibleByFive = prevCount % 5 === 0;
 
-    addOne();
+      if (isDivisibleByFive) {
+        return prevCount + 101;
+      }
+
+      return prevCount + 1;
+    });
   };
 
   return (
